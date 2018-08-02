@@ -25,3 +25,7 @@ $ npm install
 <!-- 运行 -->
 $ npm run dev
 ```
+
+代码相关问题，可以直接在上[issues](https://github.com/HerryLo/Record/issues)提出。
+
+持续迭代中。
