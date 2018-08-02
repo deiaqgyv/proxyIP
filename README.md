@@ -11,7 +11,7 @@
  * 将获取的IP保存在json文件中，剩下的就随便玩了；
  
  
-|系统 |环境  |工具包 |
+|系统 |运行环境  |工具包 |
 |:-----|:-------:|:-----|
 |不限     |   node  |  [request](https://www.npmjs.com/package/request)、[cheerio](https://www.npmjs.com/package/cheerio)、[bluebird](https://www.npmjs.com/package/bluebird) |
     
