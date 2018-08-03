@@ -101,7 +101,7 @@ async function ProxyStart(num) {
         storage = storage.concat(data)
     }
     console.log('vailProxyTotal:' + storage.length)
-    await saveData(storage)
+    // await saveData(storage)
     return storage
 }
 
