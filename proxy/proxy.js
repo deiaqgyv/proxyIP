@@ -95,12 +95,15 @@ function saveData(data) {
 async function ProxyStart(num) {
     let storage = [] //存储有效链接
     let page = 1 //当前所在页面
-    while (storage.length < num) {
-        let data = await get(page++)   //获取链接总数
+    while (storage.length < num) {        
+        while (data.length < 700) {
+            let currentData = await get(page++) //当前链接
+            data = data.concat(currentData)
+        }
         data = await check(data) //获取有效链接
         storage = storage.concat(data)
+        console.log('vaildProxyTotal:' + storage.length)
     }
-    console.log('vailProxyTotal:' + storage.length)
     // await saveData(storage)
     return storage
 }
