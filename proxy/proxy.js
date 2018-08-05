@@ -50,10 +50,14 @@ async function check(data) {
         const valid = []  //有效数据
         await new Promise((res, rej) => {
             let length = data.length
+            let userAgent = userAgents[parseInt(Math.random() * userAgents.length)];
             for (let i = 0; i < data.length; i++) {
                 const options = {
                     url: "https://www.baidu.com",
-                    proxy: data[i]
+                    proxy: data[i],
+                    headers: {
+                        'User-Agent': userAgent
+                    }
                 }
                 request.get(options, (err, req, body) => {
                     if (err) {
@@ -63,6 +67,7 @@ async function check(data) {
                     }else{
                         if(body&&req.statusCode===200){
                            valid.push(data[i])
+                           console.log('IP: '+data[i]+' 校验成功');
                          }
                     }
                       
@@ -95,7 +100,8 @@ function saveData(data) {
 async function ProxyStart(num) {
     let storage = [] //存储有效链接
     let page = 1 //当前所在页面
-    while (storage.length < num) {        
+    let data = [] //获取链接总数
+    while (storage.length < num) {
         while (data.length < 700) {
             let currentData = await get(page++) //当前链接
             data = data.concat(currentData)
