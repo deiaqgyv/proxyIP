@@ -50,8 +50,8 @@ async function check(data) {
         const valid = []  //有效数据
         await new Promise((res, rej) => {
             let length = data.length
-            let userAgent = userAgents[parseInt(Math.random() * userAgents.length)];
             for (let i = 0; i < data.length; i++) {
+                let userAgent = userAgents[parseInt(Math.random() * userAgents.length)];
                 const options = {
                     url: "https://www.baidu.com",
                     proxy: data[i],
